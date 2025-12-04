@@ -11,7 +11,7 @@ public class StoreApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
-        var manager = context.getBean(NotificationManager.class);
-        manager.sendNotification("Hello World!");
+        var orderService = context.getBean(OrderService.class);
+        orderService.placeOrder();
 	}
 }
