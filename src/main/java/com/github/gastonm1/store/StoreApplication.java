@@ -1,6 +1,7 @@
 package com.github.gastonm1.store;
 
 import com.github.gastonm1.store.entities.Address;
+import com.github.gastonm1.store.entities.Tag;
 import com.github.gastonm1.store.entities.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,10 @@ public class StoreApplication {
 //		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
         var user = User.builder().name("Gaston").password("password").email("gaston@example.com").build();
 
-        var address = Address.builder().street("street").city("city").state("state").zip("zip").build();
+        var tag = new Tag("tag1");
 
-        user.addAddress(address);
+      user.addTag("tag1");
+
         System.out.println(user);
 	}
 }
