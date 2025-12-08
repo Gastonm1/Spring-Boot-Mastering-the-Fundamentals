@@ -1,6 +1,7 @@
 package com.github.gastonm1.store;
 
 import com.github.gastonm1.store.entities.Address;
+import com.github.gastonm1.store.entities.Profile;
 import com.github.gastonm1.store.entities.Tag;
 import com.github.gastonm1.store.entities.User;
 import org.springframework.boot.SpringApplication;
@@ -14,9 +15,10 @@ public class StoreApplication {
 //		ApplicationContext context = SpringApplication.run(StoreApplication.class, args);
         var user = User.builder().name("Gaston").password("password").email("gaston@example.com").build();
 
-        var tag = new Tag("tag1");
+        var profile = Profile.builder().bio("bio").build();
 
-      user.addTag("tag1");
+        user.setProfile(profile);
+        profile.setUser(user);
 
         System.out.println(user);
 	}
