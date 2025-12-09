@@ -1,6 +1,7 @@
 package com.github.gastonm1.store.services;
 
 import com.github.gastonm1.store.entities.User;
+import com.github.gastonm1.store.repositories.AddressRepository;
 import com.github.gastonm1.store.repositories.ProfileRepository;
 import com.github.gastonm1.store.repositories.UserRepository;
 import jakarta.persistence.EntityManager;
@@ -14,6 +15,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
+    private final AddressRepository addressRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -34,5 +36,9 @@ public class UserService {
     public void showRelatedEntities(){
         var profile = profileRepository.findById(2L).orElseThrow();
         System.out.println(profile.getUser().getEmail());
+    }
+
+    public void fetchAddress(){
+        var address = addressRepository.findById(1L).orElseThrow();
     }
 }
