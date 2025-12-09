@@ -62,4 +62,7 @@ public class User {
     private Set<Product> wishlist = new HashSet<>();
 
 
+    public void addFavoriteProduct(Product product) {
+        wishlist.add(product);
+    }
 }

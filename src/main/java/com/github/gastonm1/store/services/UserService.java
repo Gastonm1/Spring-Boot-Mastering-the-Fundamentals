@@ -1,14 +1,15 @@
 package com.github.gastonm1.store.services;
 
 import com.github.gastonm1.store.entities.Address;
+import com.github.gastonm1.store.entities.Product;
 import com.github.gastonm1.store.entities.User;
-import com.github.gastonm1.store.repositories.AddressRepository;
-import com.github.gastonm1.store.repositories.ProfileRepository;
-import com.github.gastonm1.store.repositories.UserRepository;
+import com.github.gastonm1.store.repositories.*;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Service
@@ -17,6 +18,8 @@ public class UserService {
     private final ProfileRepository profileRepository;
     private final EntityManager entityManager;
     private final AddressRepository addressRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
 
     @Transactional
     public void showEntityStates() {
@@ -57,6 +60,25 @@ public class UserService {
 //        var user = userRepository.findById(3L).orElseThrow();
 //        var address = user.getAddresses().getFirst();
 //        user.removeAddress(address);
+//        userRepository.save(user);
+    }
+
+    @Transactional
+    public void manageProducts(){
+//        var category = categoryRepository.findById((byte)1).orElseThrow();
+//
+//        var product = Product.builder()
+//                .name("Product 2")
+//                .description("Description 2")
+//                .price(BigDecimal.valueOf(10.99))
+//                .category(category)
+//                .build();
+//
+//        productRepository.save(product);
+
+//        var user = userRepository.findById(2L).orElseThrow();
+//        var products = productRepository.findAll();
+//        products.forEach(user::addFavoriteProduct);
 //        userRepository.save(user);
     }
 }
