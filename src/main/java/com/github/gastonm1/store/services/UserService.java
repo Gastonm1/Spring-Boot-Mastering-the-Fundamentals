@@ -1,5 +1,6 @@
 package com.github.gastonm1.store.services;
 
+import com.github.gastonm1.store.entities.Address;
 import com.github.gastonm1.store.entities.User;
 import com.github.gastonm1.store.repositories.AddressRepository;
 import com.github.gastonm1.store.repositories.ProfileRepository;
@@ -40,5 +41,13 @@ public class UserService {
 
     public void fetchAddress(){
         var address = addressRepository.findById(1L).orElseThrow();
+    }
+
+    public void persisRelated(){
+        var user = User.builder().name("John Doe").email("john.doe@example.com").password("password").build();
+        var address = Address.builder().street("street").city("city").state("state").zip("zip").build();
+
+        user.addAddress(address);
+        userRepository.save(user);
     }
 }
