@@ -1,6 +1,7 @@
 package com.github.gastonm1.store.services;
 
 import com.github.gastonm1.store.entities.Address;
+import com.github.gastonm1.store.entities.Category;
 import com.github.gastonm1.store.entities.Product;
 import com.github.gastonm1.store.entities.User;
 import com.github.gastonm1.store.repositories.*;
@@ -71,6 +72,11 @@ public class UserService {
     @Transactional
     public void updateProductPrices () {
         productRepository.updatePriceByCategory(BigDecimal.valueOf(10), (byte)1);
+    }
+
+    public void fetchProducts() {
+        var products = productRepository.findByCategory(new Category((byte) 1));
+        products.forEach(System.out::println);
     }
 
 }

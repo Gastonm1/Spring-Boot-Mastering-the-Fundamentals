@@ -1,5 +1,7 @@
 package com.github.gastonm1.store.repositories;
 
+import com.github.gastonm1.store.dtos.ProductSummary;
+import com.github.gastonm1.store.entities.Category;
 import com.github.gastonm1.store.entities.Product;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -51,4 +53,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     @Modifying
     @Query("update Product p set p.price = :newPrice where p.category.id = :categoryId")
     void updatePriceByCategory(BigDecimal newPrice, Byte categoryId);
+
+    List<ProductSummary> findByCategory(Category categoryId);
 }
